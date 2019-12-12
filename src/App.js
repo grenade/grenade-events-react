@@ -9,7 +9,7 @@ import {
 } from 'react-vertical-timeline-component';
 import TimelineEvent from './TimelineEvent';
 import UtcTimelessDate from './UtcTimelessDate';
-import { Range } from 'rc-slider';
+import Slider, { Range } from 'rc-slider';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -18,7 +18,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rc-slider/assets/index.css';
 import './App.css';
 
-const filterEventMax = 250;
 const filterDateMin = Math.floor((new UtcTimelessDate ().floor().addDays(-4 * 365).getTime()));
 const filterDateMax = Math.floor((new UtcTimelessDate ().ceil()).getTime());
 const actionRegexes = [
@@ -90,6 +89,7 @@ class App extends Component {
     let filterDateEnd =  Math.floor((new UtcTimelessDate ().ceil()).getTime());
     this.state = {
       events: [],
+      filterEventMax: 100,
       filterDateStart: filterDateStart,
       filterDateEnd: filterDateEnd,
       filterAction: {
@@ -122,7 +122,7 @@ class App extends Component {
         {
           $and: this.state.filters
         },
-        { limit: filterEventMax, sort: { date: -1 } })
+        { limit: this.state.filterEventMax, sort: { date: -1 } })
       .asArray()
       .then(events => {
         this.setState({events});
@@ -171,12 +171,11 @@ class App extends Component {
             &nbsp;a peek into the projects i'm working on, is below.
           </p>
         </Row>
-        <Row>
+        <Row className="white-text">
           <Col>
             {
               actionRegexes.map(regex => regex.name).map(source => (
                 <Form.Check
-                  className="white-text"
                   type="switch"
                   id={source}
                   label={source}
@@ -184,6 +183,22 @@ class App extends Component {
                   onChange={this.onCheckboxChange} />
               ))
             }
+          </Col>
+          <Col>
+          </Col>
+          <Col>
+          </Col>
+          <Col>
+            <label style={{fontSize: '70%'}}>maximum number of activities to display: {this.state.filterEventMax}</label>
+            <Slider
+              value={this.state.filterEventMax}
+              min={10}
+              max={1000}
+              onChange={(filterEventMax) => this.setState({filterEventMax}, () => { this.displayEvents(); })} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Range
               allowCross={false}
               value={[this.state.filterDateStart, this.state.filterDateEnd]}
@@ -191,7 +206,7 @@ class App extends Component {
               max={filterDateMax}
               onChange={this.onSliderChange} />
             <p className="white-text text-center">
-              showing <em>{(filterEventMax === this.state.events.length) ? 'latest ' + filterEventMax : 'all ' + this.state.events.length}</em> activities from <em>{this.getFriendlyWordList(actionRegexes.filter(r => this.state.filterAction[r.name]).map(r => r.name))}</em> that took place between
+              showing <em>{(this.state.filterEventMax === this.state.events.length) ? 'latest ' + this.state.filterEventMax : 'all ' + this.state.events.length}</em> activities from <em>{this.getFriendlyWordList(actionRegexes.filter(r => this.state.filterAction[r.name]).map(r => r.name))}</em> that took place between
               &nbsp;<em>{(new Date(this.state.filterDateStart)).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toLowerCase()}</em>
               &nbsp;and <em>{(new Date(this.state.filterDateEnd)).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toLowerCase()}</em>.
             </p>
