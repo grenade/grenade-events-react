@@ -18,7 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rc-slider/assets/index.css';
 import './App.css';
 
-const filterEventMax = 100;
+const filterEventMax = 250;
 const filterDateMin = Math.floor((new UtcTimelessDate ().floor().addDays(-4 * 365).getTime()));
 const filterDateMax = Math.floor((new UtcTimelessDate ().ceil()).getTime());
 const actionRegexes = [
@@ -30,6 +30,10 @@ const actionRegexes = [
     name: 'github',
     pattern: new RegExp ('github', 'i')
   },
+  {
+    name: 'hg',
+    pattern: new RegExp ('hg', 'i')
+  }
 ];
 
 const externalLinks = [
@@ -90,7 +94,8 @@ class App extends Component {
       filterDateEnd: filterDateEnd,
       filterAction: {
         bugzilla: true,
-        github: true
+        github: true,
+        hg: true
       },
       filters: [
         { date: { $gte: timestampToDateString(filterDateStart) } },
@@ -161,27 +166,24 @@ class App extends Component {
         </Row>
         <Row className="white-text">
           <p>
-            i rarely say anything that requires capital letters. if you're here to see my resume, please go to: <a className="hot-pink-text" href="https://grenade.github.io/cv/">https://grenade.github.io/cv</a>.
+            i rarely say anything that warrants capital letters. if you're here to see my resume, please go to: <a className="hot-pink-text" href="https://grenade.github.io/cv/">https://grenade.github.io/cv</a>.
             &nbsp;much of what you never wanted to know about me, can be found by following the icon links above.
             &nbsp;a peek into the projects i'm working on, is below.
           </p>
         </Row>
         <Row>
           <Col>
-            <Form.Check
-              className="white-text"
-              type="switch"
-              id="bugzilla"
-              label="bugzilla"
-              checked={this.state.filterAction.bugzilla}
-              onChange={this.onCheckboxChange} />
-            <Form.Check
-              className="white-text"
-              type="switch"
-              id="github"
-              label="github"
-              checked={this.state.filterAction.github}
-              onChange={this.onCheckboxChange} />
+            {
+              actionRegexes.map(regex => regex.name).map(source => (
+                <Form.Check
+                  className="white-text"
+                  type="switch"
+                  id={source}
+                  label={source}
+                  checked={this.state.filterAction[source]}
+                  onChange={this.onCheckboxChange} />
+              ))
+            }
             <Range
               allowCross={false}
               value={[this.state.filterDateStart, this.state.filterDateEnd]}
@@ -189,7 +191,7 @@ class App extends Component {
               max={filterDateMax}
               onChange={this.onSliderChange} />
             <p className="white-text text-center">
-              showing (up to) <em>{filterEventMax}</em> activities from <em>{this.getFriendlyWordList(actionRegexes.filter(r => this.state.filterAction[r.name]).map(r => r.name))}</em> that took place between
+              showing <em>{(filterEventMax === this.state.events.length) ? 'latest ' + filterEventMax : 'all ' + this.state.events.length}</em> activities from <em>{this.getFriendlyWordList(actionRegexes.filter(r => this.state.filterAction[r.name]).map(r => r.name))}</em> that took place between
               &nbsp;<em>{(new Date(this.state.filterDateStart)).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toLowerCase()}</em>
               &nbsp;and <em>{(new Date(this.state.filterDateEnd)).toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toLowerCase()}</em>.
             </p>
@@ -225,7 +227,8 @@ class App extends Component {
       (state, props) => ({
         filterAction: {
           bugzilla: (target.id === 'bugzilla') ? target.checked : state.filterAction.bugzilla,
-          github: (target.id === 'github') ? target.checked : state.filterAction.github
+          github: (target.id === 'github') ? target.checked : state.filterAction.github,
+          hg: (target.id === 'hg') ? target.checked : state.filterAction.hg
         },
         filters: [
           state.filters[0],
