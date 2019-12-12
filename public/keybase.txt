@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/grenade
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://grenade.github.io
+  * I am grenade (https://keybase.io/grenade) on keybase.
+  * I have a public key with fingerprint 1C09 AC24 C113 C7F0 80DD  4AA5 B3C5 A958 508A 43F2
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01015c06324294cd2e27b40677e0e2b0827a8b61f29f72d3ae12afec332d033a56280a",
+            "fingerprint": "1c09ac24c113c7f080dd4aa5b3c5a958508a43f2",
+            "host": "keybase.io",
+            "key_id": "b3c5a958508a43f2",
+            "kid": "01015c06324294cd2e27b40677e0e2b0827a8b61f29f72d3ae12afec332d033a56280a",
+            "uid": "94916c541b4a20def56433ed855a3819",
+            "username": "grenade"
+        },
+        "service": {
+            "hostname": "grenade.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1450389494,
+    "expire_in": 157680000,
+    "prev": "a6c88447da81cf7114228edddd3d40972593d618b9cf9e15752871b969fd0dab",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owGtUltIFUEYPudkml0gqMDAihYKA4u57e7soctDWQpFF7pB2ml2Z/acRds97lkt
+E6N6iXrJQIp8SIQwulkW1kOFEVjhJeqheqxADbGrQReqY7NWD0GP/S/D/PN93/99
+w984bUIkFr3WfW77hqMrR6O9w2Zkawbk1Cumx+uUeL1SKcYPUcVFJkhUOlyJKwAC
+qFpAw4ggg1gcCaSbBGi6LoBAJqBIZ9TUoI0MW0ccMwERs4WFMeIAY6ZqiAKmFCu2
+4yaFn/YdN5Cy0AIGsxCxIMSWbgMKOCeMqSa2VGaoVAWUEWwjSUx5mZAhzZksI5Y4
+nuzJS2Lc3j/w/9l3zbicQQyoWSqBJmEIcGGrGsFYcKqqDFNohMCM8F22W0h00hcu
+40JpKFZks9axRPivYZC/AUuSTpCqMX9lSvte4FlelXxOBUE6Ew/pQV06xO8RZuK3
+UsJ0XC7/UjJqhZ9xPFeJQ4m0AieUhkQFmEq7pFgRe9OOLxJOiFB1jQJZ4RxRKyWZ
+ZpVTSojOGYWWrUNIEKKCy8KcAENHqoG5BqlpWLYhpICKqA5NQzNsDjgzlTBctesp
+cTkqYEmpmXGSLgtqfJl88pFoYU4kGovkToyFWxaZnD/9z+qtnDMp0tps59xqeb0z
+tevH1NVV7amNIwtSJXmPni7KXz/1CB+4t7r6+uamtua1i75O+9hzE99vA7VjGw+W
+NTZVjGQLHjwvTlTQs5j1RTrent73Zf6rD51nSv25x3M3b38ymv32qb36xLO6ovZl
+2Snl11/273/TmYrf2PNpcQXYUjpvdufa3sHOS00tAx3lBYPfh7x9hacP7+8aaR7b
+0V3S2HhhVla/evHYwpMPZ6wog4++3Sk/kFd2s/JzdPHStgldfWc6Sk415H3Wst3D
+X9xVKxp6Vl25++JQV39R/e2BbbHBmcu35F7eFO0d6t1b2rqu8F3s5Y4bJ/rHNtSf
+m0cKnw/mryl6v/78nJqrj38C
+=19vk
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/grenade
+
+==================================================================
