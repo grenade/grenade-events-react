@@ -18,7 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'rc-slider/assets/index.css';
 import './App.css';
 
-const filterDateMin = Math.floor((new UtcTimelessDate ().floor().addDays(-4 * 365).getTime()));
+const filterDateMin = Math.floor((new UtcTimelessDate ('2013-04-07').floor().getTime()));
 const filterDateMax = Math.floor((new UtcTimelessDate ().ceil()).getTime());
 const actionRegexes = [
   {
