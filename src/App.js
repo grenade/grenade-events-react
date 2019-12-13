@@ -23,15 +23,19 @@ const filterDateMax = Math.floor((new UtcTimelessDate ().ceil()).getTime());
 const actionRegexes = [
   {
     name: 'bugzilla',
-    pattern: new RegExp ('bugzilla', 'i')
+    pattern: new RegExp ('^bugzilla_', 'i')
+  },
+  {
+    name: 'git',
+    pattern: new RegExp ('^git_', 'i')
   },
   {
     name: 'github',
-    pattern: new RegExp ('github', 'i')
+    pattern: new RegExp ('^github_', 'i')
   },
   {
     name: 'hg',
-    pattern: new RegExp ('hg', 'i')
+    pattern: new RegExp ('^hg_', 'i')
   }
 ];
 
@@ -94,6 +98,7 @@ class App extends Component {
       filterDateEnd: filterDateEnd,
       filterAction: {
         bugzilla: true,
+        git: true,
         github: true,
         hg: true
       },
@@ -189,7 +194,7 @@ class App extends Component {
           <Col>
           </Col>
           <Col>
-            <label style={{fontSize: '70%'}}>maximum number of activities to display: {this.state.filterEventMax}</label>
+            <label style={{fontSize: '70%'}}>number of activities to display: {this.state.filterEventMax}</label>
             <Slider
               value={this.state.filterEventMax}
               min={10}
