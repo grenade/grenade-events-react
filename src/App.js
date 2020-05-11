@@ -167,7 +167,7 @@ class App extends Component {
           <Col>
             <div className="rounded" style={{ backgroundColor: 'white', width: '100%' }}>
               {externalLinks.map((el, i) => (
-                <a href={el.link} title={el.alt} key={i}>
+                <a href={el.url} title={el.alt} key={i} target="_blank">
                   <img src={el.icon} alt={el.alt} className="float-right" style={{marginLeft: '10px'}} />
                 </a>              
               ))}
