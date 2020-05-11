@@ -41,6 +41,11 @@ const actionRegexes = [
 
 const externalLinks = [
   {
+    url: 'https://instagram.com/robin_thijssen',
+    icon: 'https://github.com/grenade/grenade-events-react/raw/master/public/ig36.png',
+    alt: 'photos on instagram'
+  },
+  {
     url: 'https://twitter.com/grenade',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/twitter.png',
     alt: 'random musings at twitter'
@@ -62,22 +67,22 @@ const externalLinks = [
   },
   {
     url: 'https',
-    icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/github.png',
+    icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/githublod.png',
     alt: 'code contribution at github'
   },
   {
     url: 'https://mozillians.org/en-US/u/grenade/',
-    icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/mozilla.png',
+    icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/mozillalod.png',
     alt: 'working at mozilla'
   },
   {
     url: 'https',
-    icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/bike36.png',
+    icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/bike36lod.png',
     alt: 'solo adventure biking in europe on a yamaha fzs 1000'
   },
   {
     url: 'https',
-    icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/sail36.png',
+    icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/sail36lod.png',
     alt: 'sailing solo on a magnifik midget'
   }
 ];
