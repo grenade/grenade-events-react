@@ -36,6 +36,10 @@ const actionRegexes = [
   {
     name: 'hg',
     pattern: new RegExp ('^hg_', 'i')
+  },
+  {
+    name: 'workstation',
+    pattern: new RegExp ('^workstation_', 'i')
   }
 ];
 
@@ -51,22 +55,22 @@ const externalLinks = [
     alt: 'random musings at twitter'
   },
   {
-    url: 'https',
+    url: 'https://www.facebook.com/rob.thijssen',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/facebook.png',
     alt: 'social life and photos on facebook'
   },
   {
-    url: 'https',
+    url: 'https://linkedin.com/in/thijssen/',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/in.png',
     alt: 'career history and linkedin connections and profile'
   },
   {
-    url: 'https',
+    url: 'https://stackoverflow.com/users/68115/grenade',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/so.png',
     alt: 'giving and receiving technical advice at stackoverflow'
   },
   {
-    url: 'https',
+    url: 'https://github.com/grenade',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/githublod.png',
     alt: 'code contribution at github'
   },
@@ -76,12 +80,12 @@ const externalLinks = [
     alt: 'working at mozilla'
   },
   {
-    url: 'https',
+    url: 'https://steelhorseadventures.com',
     icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/bike36lod.png',
     alt: 'solo adventure biking in europe on a yamaha fzs 1000'
   },
   {
-    url: 'https',
+    url: 'https://draken-magnifik-midget.blogspot.com/',
     icon: 'https://raw.githubusercontent.com/steelhorseadventures/sha-ng/master/app/images/sail36lod.png',
     alt: 'sailing solo on a magnifik midget'
   }
@@ -105,7 +109,8 @@ class App extends Component {
         bugzilla: true,
         git: true,
         github: true,
-        hg: true
+        hg: true,
+        workstation: true
       },
       filters: [
         { date: { $gte: timestampToDateString(filterDateStart) } },
@@ -167,7 +172,7 @@ class App extends Component {
           <Col>
             <div className="rounded" style={{ backgroundColor: 'white', width: '100%' }}>
               {externalLinks.map((el, i) => (
-                <a href={el.url} title={el.alt} key={i} target="_blank">
+                <a href={el.url} title={el.alt} key={i} target="_blank" rel="noopener noreferrer">
                   <img src={el.icon} alt={el.alt} className="float-right" style={{marginLeft: '10px'}} />
                 </a>              
               ))}
@@ -252,8 +257,10 @@ class App extends Component {
       (state, props) => ({
         filterAction: {
           bugzilla: (target.id === 'bugzilla') ? target.checked : state.filterAction.bugzilla,
+          git: (target.id === 'git') ? target.checked : state.filterAction.git,
           github: (target.id === 'github') ? target.checked : state.filterAction.github,
-          hg: (target.id === 'hg') ? target.checked : state.filterAction.hg
+          hg: (target.id === 'hg') ? target.checked : state.filterAction.hg,
+          workstation: (target.id === 'workstation') ? target.checked : state.filterAction.workstation
         },
         filters: [
           state.filters[0],
