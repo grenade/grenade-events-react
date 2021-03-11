@@ -50,27 +50,16 @@ class TimelineEvent extends React.Component {
     }
     switch (this.props.timelineEvent.action) {
       case 'GitHub_PullRequestEvent':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
-        break;
       case 'GitHub_PullRequestReviewCommentEvent':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
-        break;
       case 'GitHub_IssueCommentEvent':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
-        break;
       case 'GitHub_PushEvent':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
-        break;
       case 'GitHub_DeleteEvent':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
-        break;
       case 'GitHub_ForkEvent':
         iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-push-github.png';
         break;
       case 'Bugzilla_BugChange':
-        iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-bugzilla.png';
-        break;
       case 'Bugzilla_BugComment':
+      case 'Bugzilla_BugCreate':
         iconUrl = 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/icon-bugzilla.png';
         break;
       case 'Git_Commit':

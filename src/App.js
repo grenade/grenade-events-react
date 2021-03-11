@@ -75,7 +75,7 @@ const externalLinks = [
     alt: 'code contribution at github'
   },
   {
-    url: 'https://mozillians.org/en-US/u/grenade/',
+    url: 'https://people.mozilla.org/p/grenade',
     icon: 'https://github.com/grenade/grenade-ng-root/raw/master/app/images/mozillalod.png',
     alt: 'working at mozilla'
   },
