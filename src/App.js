@@ -45,7 +45,7 @@ const actionRegexes = [
 
 const externalLinks = [
   {
-    url: 'https://instagram.com/robin_thijssen',
+    url: 'https://instagram.com/rob_thij',
     icon: 'https://github.com/grenade/grenade-events-react/raw/master/public/ig36.png',
     alt: 'photos on instagram'
   },
@@ -181,7 +181,7 @@ class App extends Component {
         </Row>
         <Row className="white-text">
           <p>
-            i rarely say anything that warrants capital letters. if you're here to see my resume, please go to: <a className="hot-pink-text" href="https://grenade.github.io/cv/">https://grenade.github.io/cv</a>.
+            i rarely say anything that warrants capital letters. if you're here to see my resume, please go to: <a className="hot-pink-text" href="https://rob.tn/cv/">https://rob.tn/cv</a>.
             &nbsp;much of what you never wanted to know about me, can be found by following the icon links above.
             &nbsp;a peek into the projects i'm working on, is below.
           </p>
